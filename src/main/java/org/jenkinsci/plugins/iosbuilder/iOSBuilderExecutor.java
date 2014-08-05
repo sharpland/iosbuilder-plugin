@@ -49,7 +49,7 @@ public class iOSBuilderExecutor {
         try {
             FilePath rootPath = new FilePath(build.getWorkspace(), envVars.expand(projectRootPath));
             String action = rootPath.child("Podfile.lock").exists() ? "update" : "install";
-            return executeAt(rootPath, pod, action, "--no-color");
+            return executeAt(rootPath, pod, action, "--no-clean");
         }
         catch (Exception e) {
             e.printStackTrace(listener.getLogger());
